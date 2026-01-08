@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VocoSense is a non-invasive wearable that converts vocal-cord vibrations into clear digital speech via a paired smartphone app and ML model. Affordable, portable, and designed for people with speech disabilities.">
+    <title>VocoSense — Restore Voice, Restore Connection</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .navy { background-color: #0f1724; }
+        .red-primary { background-color: #dc2626; }
+        .red-light { background-color: #ef4444; }
+        .red-dark { background-color: #991b1b; }
+        .red-darker { background-color: #7f1d1d; }
+        .text-navy { color: #0f1724; }
+        .text-red { color: #dc2626; }
+        .text-red-light { color: #ef4444; }
+        
+        /* Smooth fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        /* Counter animation */
+        @keyframes countUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background-color: #991b1b;" role="navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#hero" class="text-2xl font-bold text-white hover:text-red-light transition-colors">VocoSense</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#how-it-works" class="text-white/90 hover:text-red-light transition-colors text-sm font-medium">How It Works</a>
+                    <a href="#features" class="text-white/90 hover:text-red-light transition-colors text-sm font-medium">Features</a>
+                    <a href="#team" class="text-white/90 hover:text-red-light transition-colors text-sm font-medium">Team</a>
+                    <a href="#validation" class="text-white/90 hover:text-red-light transition-colors text-sm font-medium">Validation</a>
+                    <a href="#market" class="text-white/90 hover:text-red-light transition-colors text-sm font-medium">Market</a>
+                    <a href="#contact" class="text-white/90 hover:text-red-light transition-colors text-sm font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10" style="background-color: #991b1b;">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#how-it-works" class="block text-white/90 hover:text-red-light transition-colors py-2 text-sm font-medium">How It Works</a>
+                <a href="#features" class="block text-white/90 hover:text-red-light transition-colors py-2 text-sm font-medium">Features</a>
+                <a href="#team" class="block text-white/90 hover:text-red-light transition-colors py-2 text-sm font-medium">Team</a>
+                <a href="#validation" class="block text-white/90 hover:text-red-light transition-colors py-2 text-sm font-medium">Validation</a>
+                <a href="#market" class="block text-white/90 hover:text-red-light transition-colors py-2 text-sm font-medium">Market</a>
+                <a href="#contact" class="block text-white/90 hover:text-red-light transition-colors py-2 text-sm font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-navy via-navy to-red-darker pt-16" style="background: linear-gradient(135deg, #0f1724 0%, #0f1724 50%, #7f1d1d 100%);">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6" style="color: #ffffff;">Speak again. Simply.</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-8" style="color: rgba(255, 255, 255, 0.9);">
+                A non-invasive, portable biosensor that turns throat vibrations into clear speech — restoring communication and dignity for people with speech disabilities.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 mb-12">
+                <a href="#contact" class="px-8 py-4 font-semibold rounded-lg shadow-lg transition-colors hover:opacity-90" style="background-color: #dc2626; color: #ffffff;">Request a Demo</a>
+                <a href="#brochure" class="px-8 py-4 font-semibold rounded-lg border-2 transition-colors hover:bg-white/20" style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border-color: rgba(255, 255, 255, 0.3);">Download Brief</a>
+            </div>
+            <!-- Hero Logo -->
+            <div class="mt-12 max-w-3xl mx-auto">
+                <div class="bg-white/10 rounded-2xl p-8 backdrop-blur-sm border border-white/20">
+                    <img src="images/logo.png" 
+                         alt="VocoSense logo"
+                         class="w-full h-auto rounded-lg shadow-2xl"
+                         style="max-height: 400px; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Elevator Pitch -->
+    <section id="about" class="py-20" style="background-color: #ffffff;">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: #0f1724;">About VocoSense</h2>
+                <p class="text-lg leading-relaxed text-left" style="color: #374151;">
+                    VocoSense is a non-invasive, portable, and cost-effective device that converts vocal-cord vibrations into clear digital speech, enabling individuals to communicate independently in daily life. Target customers include people with congenital neurological conditions (e.g., Childhood Apraxia), stroke survivors with aphasia, and those who have lost vocal function from surgery or trauma. Unlike bulky or surgically implanted alternatives, VocoSense combines a flexible, self-powered biosensor with a trained machine-learning model and a paired smartphone app, making it accessible across healthcare budgets. By translating throat signals into text or synthesized speech, VocoSense restores a reliable channel for expression — a bridge to conversation, community, and dignity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20" style="background-color: #ffffff;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #0f1724;">How It Works</h2>
+                <p class="text-xl max-w-2xl mx-auto" style="color: #4b5563;">Four simple steps to restore communication</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="rounded-xl p-6 hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <div class="mb-4">
+                        <img src="images/how-it-works-1.png" 
+                             alt="Skin-safe biosensor - VocoSense step 1"
+                             class="w-full h-auto rounded-lg shadow-md"
+                             onerror="this.style.display='none';">
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold text-xl" style="background-color: #dc2626;">1</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold mb-2" style="color: #0f1724;">Skin-safe biosensor</h3>
+                            <p class="leading-relaxed" style="color: #4b5563;">A patch-like sensor placed near the vocal cords captures acoustic throat vibrations using a hybrid friction-piezoelectric stack (PVDF + PDMS with copper/aluminum electrodes).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-xl p-6 hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <div class="mb-4">
+                        <img src="images/how-it-works-2.png" 
+                             alt="Signal acquisition - VocoSense step 2"
+                             class="w-full h-auto rounded-lg shadow-md"
+                             onerror="this.style.display='none';">
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold text-xl" style="background-color: #dc2626;">2</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold mb-2" style="color: #0f1724;">Signal acquisition</h3>
+                            <p class="leading-relaxed" style="color: #4b5563;">Sensor outputs are digitized and preprocessed by an acquisition module (MVP uses a wired acquisition card; planned wireless/Bluetooth in future iterations).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-xl p-6 hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <div class="mb-4">
+                        <img src="images/how-it-works-3.png" 
+                             alt="Machine learning - VocoSense step 3"
+                             class="w-full h-auto rounded-lg shadow-md"
+                             onerror="this.style.display='none';">
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold text-xl" style="background-color: #dc2626;">3</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold mb-2" style="color: #0f1724;">Machine learning</h3>
+                            <p class="leading-relaxed" style="color: #4b5563;">A CNN model trained on throat vibration samples extracts spectral features and classifies intended speech, converting signals into text with high accuracy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-xl p-6 hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <div class="mb-4">
+                        <img src="images/how-it-works-4.png" 
+                             alt="Paired app - VocoSense step 4"
+                             class="w-full h-auto rounded-lg shadow-md"
+                             onerror="this.style.display='none';">
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold text-xl" style="background-color: #dc2626;">4</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold mb-2" style="color: #0f1724;">Paired app</h3>
+                            <p class="leading-relaxed" style="color: #4b5563;">The mobile app shows recognized text for review/edit and plays synthesized speech. Additional features include translation and voice customization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- How It Works Visual Video -->
+            <div class="mt-16 rounded-2xl p-8 fade-in" style="background: linear-gradient(to right, rgba(220, 38, 38, 0.1), rgba(153, 27, 27, 0.1));">
+                <div class="relative w-full" style="max-width: 1000px; margin: 0 auto;">
+                    <video 
+                        controls 
+                        class="w-full h-auto rounded-lg shadow-lg"
+                        style="max-height: 600px; background-color: #000;"
+                        poster="images/workflow-poster.jpg"
+                        preload="metadata">
+                        <source src="videos/workflow.mp4" type="video/mp4">
+                        <source src="videos/workflow.webm" type="video/webm">
+                        <source src="videos/workflow.mov" type="video/quicktime">
+                        <p class="text-center p-8" style="color: #ffffff;">
+                            Your browser doesn't support video playback. 
+                            <a href="videos/workflow.mp4" style="color: #dc2626;">Download the video</a> instead.
+                        </p>
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20" style="background-color: #f9fafb;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #0f1724;">Key Features</h2>
+                <p class="text-xl max-w-2xl mx-auto" style="color: #4b5563;">Designed for accessibility, comfort, and independence</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow fade-in" style="background-color: #ffffff;">
+                    <div class="mb-4" style="color: #dc2626;">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                    </div>
+                    <p class="leading-relaxed" style="color: #374151;">Non-invasive and portable — patch form factor</p>
+                </div>
+                <div class="rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow fade-in" style="background-color: #ffffff;">
+                    <div class="mb-4" style="color: #dc2626;">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <p class="leading-relaxed" style="color: #374151;">Self-powered sensor reduces charging needs</p>
+                </div>
+                <div class="rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow fade-in" style="background-color: #ffffff;">
+                    <div class="mb-4" style="color: #dc2626;">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <p class="leading-relaxed" style="color: #374151;">High accuracy ML (CNN) for small vocabulary & expanding models</p>
+                </div>
+                <div class="rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow fade-in" style="background-color: #ffffff;">
+                    <div class="mb-4" style="color: #dc2626;">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <p class="leading-relaxed" style="color: #374151;">Paired smartphone app with edit/review and translation</p>
+                </div>
+                <div class="rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow fade-in" style="background-color: #ffffff;">
+                    <div class="mb-4" style="color: #dc2626;">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <p class="leading-relaxed" style="color: #374151;">Clinical and personal use: designed for hospitals, clinics, and direct consumers</p>
+                </div>
+                <div class="rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow fade-in" style="background-color: #ffffff;">
+                    <div class="mb-4" style="color: #dc2626;">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <p class="leading-relaxed" style="color: #374151;">Affordable manufacturing target to broaden access</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics -->
+    <section id="metrics" class="py-20" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: #ffffff;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #ffffff;">Impact & Performance</h2>
+                <p class="text-xl max-w-2xl mx-auto" style="color: rgba(255, 255, 255, 0.9);">Validated results from our research and development</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20 fade-in">
+                    <div class="text-5xl md:text-6xl font-bold mb-4"><span id="accuracy-counter">99</span>%</div>
+                    <p class="text-xl text-white/90">Lab Test Accuracy</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20 fade-in">
+                    <div class="text-5xl md:text-6xl font-bold mb-4"><span id="sensors-counter">10</span>+</div>
+                    <p class="text-xl text-white/90">Sensor Architectures Tested</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20 fade-in">
+                    <div class="text-5xl md:text-6xl font-bold mb-4"><span id="market-counter">1</span>B</div>
+                    <p class="text-xl text-white/90">People with Speech Difficulties (TAM)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-20" style="background-color: #ffffff;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #0f1724;">Our Team</h2>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: #4b5563;">
+                    Our team formed around a shared goal: restore human connection for people who lost vocal ability. Tracy (team lead) oversees device design and prototyping with materials research on PVDF & PDMS. David builds the paired mobile app and data pipeline. Isabella manages finances and forecasting. George leads partnerships, outreach, and clinical data collection. Together we combine materials science, ML engineering, app development, and commercialization experience.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="rounded-xl p-6 text-center hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <img src="images/tracy.jpg" alt="Tracy - Team Lead" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 items-center justify-center text-white text-3xl font-bold hidden" style="background: linear-gradient(135deg, #dc2626, #991b1b); display: flex;">T</div>
+                    <h3 class="text-xl font-semibold mb-1" style="color: #0f1724;">Tracy</h3>
+                    <p class="font-medium mb-3 text-sm" style="color: #dc2626;">Team Lead & Device Design</p>
+                    <p class="text-sm leading-relaxed" style="color: #4b5563;">Oversees device design and prototyping with materials research on PVDF & PDMS</p>
+                </div>
+                <div class="rounded-xl p-6 text-center hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <img src="images/david.jpg" alt="David - Mobile App Developer" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 items-center justify-center text-white text-3xl font-bold hidden" style="background: linear-gradient(135deg, #dc2626, #991b1b); display: flex;">D</div>
+                    <h3 class="text-xl font-semibold mb-1" style="color: #0f1724;">David</h3>
+                    <p class="font-medium mb-3 text-sm" style="color: #dc2626;">Mobile App Developer</p>
+                    <p class="text-sm leading-relaxed" style="color: #4b5563;">Builds the paired mobile app and data pipeline</p>
+                </div>
+                <div class="rounded-xl p-6 text-center hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <img src="images/isabella.jpg" alt="Isabella - Finance" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 items-center justify-center text-white text-3xl font-bold hidden" style="background: linear-gradient(135deg, #dc2626, #991b1b); display: flex;">I</div>
+                    <h3 class="text-xl font-semibold mb-1" style="color: #0f1724;">Isabella</h3>
+                    <p class="font-medium mb-3 text-sm" style="color: #dc2626;">Finance & Forecasting</p>
+                    <p class="text-sm leading-relaxed" style="color: #4b5563;">Manages finances and forecasting to ensure sustainability</p>
+                </div>
+                <div class="rounded-xl p-6 text-center hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <img src="images/george.jpg" alt="George - Partnerships" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 items-center justify-center text-white text-3xl font-bold hidden" style="background: linear-gradient(135deg, #dc2626, #991b1b); display: flex;">G</div>
+                    <h3 class="text-xl font-semibold mb-1" style="color: #0f1724;">George</h3>
+                    <p class="font-medium mb-3 text-sm" style="color: #dc2626;">Partnerships & Outreach</p>
+                    <p class="text-sm leading-relaxed" style="color: #4b5563;">Leads partnerships, outreach, and clinical data collection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation -->
+    <section id="validation" class="py-20" style="background-color: #f9fafb;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #0f1724;">Validation & Progress</h2>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed mb-8" style="color: #4b5563;">
+                    VocoSense has progressed from design schematics to a working prototype and controlled lab tests. We tested 10+ sensor architectures (piezoelectric, triboelectric, hybrid). The selected hybrid sensor (PVDF + PDMS with aluminum & copper electrodes) produced the strongest, most repeatable waveforms during standardized bending tests and could distinguish different kinematic inputs. Laboratory tests with a limited Mandarin vocabulary (numbers 1–10, vowels, six single-character words) yielded a CNN classification accuracy up to 99% under controlled conditions. Next steps: expand dataset across ages, genders, and real-world conditions; conduct wearability studies; integrate wireless transmission and on-device preprocessing.
+                </p>
+            </div>
+            <!-- Validation Image -->
+            <div class="max-w-4xl mx-auto fade-in">
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <img src="images/validation.jpg" 
+                         alt="VocoSense validation and progress - prototype testing and lab results"
+                         class="w-full h-auto rounded-lg"
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'text-center p-8 text-gray-500\'>Upload your validation image as <strong>images/validation.jpg</strong></div>';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market -->
+    <section id="market" class="py-20" style="background-color: #ffffff;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #0f1724;">Market Opportunity</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="rounded-xl p-8 fade-in" style="background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(153, 27, 27, 0.1));">
+                    <h3 class="text-2xl font-bold mb-4" style="color: #0f1724;">The Problem</h3>
+                    <p class="leading-relaxed mb-6" style="color: #374151;">
+                        Communication is a fundamental human need yet millions lack affordable, natural ways to speak. Many stroke survivors develop aphasia and others are born with conditions that limit speech. Current assistive methods (sign language, typing AAC tools, implanted BCIs) either require others' knowledge, are slow, or are invasive and costly. VocoSense focuses on making silent-speech natural and accessible: a vibration-sensing patch translates vocal-cord signals into text/speech via a phone app, improving speed, privacy, and independence.
+                    </p>
+                </div>
+                <div class="rounded-xl p-8 fade-in" style="background-color: #f9fafb;">
+                    <h3 class="text-2xl font-bold mb-4" style="color: #0f1724;">Market Size</h3>
+                    <p class="leading-relaxed mb-6" style="color: #374151;">
+                        TAM: up to ~1 billion people worldwide with speech and language difficulties. SAM (initial): clinical patients and rehabilitation centers in targeted regions. Initial GTM prioritizes hospitals, rehab clinics, and speech therapy centers (B2B) plus direct online sales and community outreach (B2C). Key buyer concerns: accuracy, affordability, comfort, and clinical validation.
+                    </p>
+                    <div class="space-y-4 mt-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #dc2626;"></div>
+                            <span style="color: #374151;">B2B: Hospitals, rehabilitation centers, speech therapy clinics</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #dc2626;"></div>
+                            <span style="color: #374151;">B2C: Direct online sales and community outreach</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 rounded-full" style="background-color: #dc2626;"></div>
+                            <span style="color: #374151;">Key concerns: Accuracy, affordability, comfort, clinical validation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competition -->
+    <section id="competition" class="py-20" style="background-color: #f9fafb;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #0f1724;">Competitive Advantage</h2>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: #4b5563;">
+                    Competitors include traditional speech-generating devices, symbol/keyboard AAC apps, other silent-speech prototypes using neck sensors, and invasive BCIs. VocoSense differentiates by its flexible, self-powered wearable design, emphasis on daily comfort/usability, and a focus on making the solution affordable and widely deployable. Limitations: per-user training required, sensitivity to placement/movement; planned mitigations include improved UX guides, sensor mounting improvements, and robust ML personalization.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="rounded-xl p-8 fade-in" style="background: linear-gradient(135deg, #dc2626, #991b1b); color: #ffffff;">
+                    <h3 class="text-2xl font-bold mb-6" style="color: #ffffff;">VocoSense Advantages</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Non-invasive, flexible wearable design</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Self-powered sensor reduces charging needs</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Affordable and widely deployable</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>High accuracy ML model (99% in lab tests)</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Portable and designed for daily use</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-xl p-8 shadow-md fade-in" style="background-color: #ffffff;">
+                    <h3 class="text-2xl font-bold mb-6" style="color: #0f1724;">Competitor Comparison</h3>
+                    <div class="space-y-6">
+                        <div class="border-b pb-4" style="border-color: #e5e7eb;">
+                            <h4 class="font-semibold mb-2" style="color: #0f1724;">Traditional Speech Devices</h4>
+                            <div class="text-sm" style="color: #4b5563;">✗ Bulky, Expensive, Limited portability</div>
+                        </div>
+                        <div class="border-b pb-4" style="border-color: #e5e7eb;">
+                            <h4 class="font-semibold mb-2" style="color: #0f1724;">AAC Apps</h4>
+                            <div class="text-sm" style="color: #4b5563;">✗ Slow typing, Requires fine motor skills, Less natural</div>
+                        </div>
+                        <div class="border-b pb-4" style="border-color: #e5e7eb;">
+                            <h4 class="font-semibold mb-2" style="color: #0f1724;">Silent-Speech Prototypes</h4>
+                            <div class="text-sm" style="color: #4b5563;">✗ Lab-based, Not portable, Limited testing</div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2" style="color: #0f1724;">BCIs (Brain-Computer Interfaces)</h4>
+                            <div class="text-sm" style="color: #4b5563;">✗ Invasive, Expensive, Complex surgery required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Go To Market -->
+    <section id="go-to-market" class="py-20" style="background-color: #ffffff;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #0f1724;">Go-To-Market Strategy</h2>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed" style="color: #4b5563;">
+                    Pilot customers: patients with acquired vocal loss (post-laryngeal cancer, trauma, stroke). Strategy: pilot and validation partnerships with hospitals and clinics; targeted clinician outreach and speech-therapy partnerships; parallel digital marketing to patient communities and caregivers. Sales channels: B2B partnerships and direct online B2C sales.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="rounded-xl p-6 hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <div class="text-4xl mb-4">🏥</div>
+                    <h3 class="text-xl font-semibold mb-3" style="color: #0f1724;">B2B Partnerships</h3>
+                    <p class="leading-relaxed" style="color: #4b5563;">Pilot programs with hospitals, rehabilitation centers, and speech therapy clinics</p>
+                </div>
+                <div class="rounded-xl p-6 hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <div class="text-4xl mb-4">👨‍⚕️</div>
+                    <h3 class="text-xl font-semibold mb-3" style="color: #0f1724;">Clinical Validation</h3>
+                    <p class="leading-relaxed" style="color: #4b5563;">Targeted clinician outreach and speech-therapy partnerships</p>
+                </div>
+                <div class="rounded-xl p-6 hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-semibold mb-3" style="color: #0f1724;">Direct B2C Sales</h3>
+                    <p class="leading-relaxed" style="color: #4b5563;">Online sales and digital marketing to patient communities and caregivers</p>
+                </div>
+                <div class="rounded-xl p-6 hover:shadow-lg transition-shadow fade-in" style="background-color: #f9fafb;">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-xl font-semibold mb-3" style="color: #0f1724;">Community Outreach</h3>
+                    <p class="leading-relaxed" style="color: #4b5563;">Engage with patient advocacy groups and support networks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20" style="background: linear-gradient(135deg, #0f1724 0%, #7f1d1d 100%); color: #ffffff;">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: #ffffff;">Get In Touch</h2>
+                <p class="text-xl max-w-2xl mx-auto" style="color: rgba(255, 255, 255, 0.9);">Contact us to schedule a demo or join our pilot program.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 fade-in">
+                <form id="contact-form" class="space-y-6" onsubmit="handleSubmit(event)">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-2">Name *</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/50 focus:outline-none" style="focus:ring-color: #dc2626;">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2">Email *</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/50 focus:outline-none" style="focus:ring-color: #dc2626;">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/50 focus:outline-none resize-none" style="focus:ring-color: #dc2626;"></textarea>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="requestDemo" name="requestDemo" class="w-4 h-4 bg-white/10 border-white/30 rounded" style="accent-color: #dc2626;">
+                        <label for="requestDemo" class="ml-3 text-sm">I'd like to request a demo</label>
+                    </div>
+                    <button type="submit" class="w-full px-8 py-4 font-semibold rounded-lg transition-colors hover:opacity-90" style="background-color: #dc2626; color: #ffffff;">Send Message</button>
+                </form>
+                <div id="form-success" class="hidden text-center py-8">
+                    <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background-color: #dc2626;">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Thank you!</h3>
+                    <p class="text-white/90">We'll get back to you soon.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center space-y-4 fade-in">
+                <p class="text-white/90">Or reach us directly:</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="mailto:vocosense@atomicmail.io" class="transition-colors flex items-center space-x-2" style="color: #dc2626;">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>vocosense@atomicmail.io</span>
+                    </a>
+                    <a href="tel:+8618721234963" class="transition-colors flex items-center space-x-2" style="color: #dc2626;">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span>+86 18721234963</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="navy text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">VocoSense</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">Restoring voice, restoring connection. Empowering individuals with speech disabilities through innovative technology.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                <li><a href="#how-it-works" class="text-white/70 hover:text-red-light transition-colors">How It Works</a></li>
+                <li><a href="#features" class="text-white/70 hover:text-red-light transition-colors">Features</a></li>
+                <li><a href="#team" class="text-white/70 hover:text-red-light transition-colors">Team</a></li>
+                <li><a href="#validation" class="text-white/70 hover:text-red-light transition-colors">Validation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                <li><a href="#brochure" class="text-white/70 hover:text-red-light transition-colors">Download Brief</a></li>
+                <li><a href="#market" class="text-white/70 hover:text-red-light transition-colors">Market Info</a></li>
+                <li><a href="#competition" class="text-white/70 hover:text-red-light transition-colors">Competition</a></li>
+                <li><a href="#contact" class="text-white/70 hover:text-red-light transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-white/70">
+                <li><a href="mailto:vocosense@atomicmail.io" class="transition-colors hover:text-red-light">vocosense@atomicmail.io</a></li>
+                <li><a href="tel:+8618721234963" class="transition-colors hover:text-red-light">+86 18721234963</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-white/70 text-sm">© 2024 VocoSense. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-white/70 hover:text-red-light transition-colors text-sm">Privacy Policy</a>
+                    <a href="#" class="text-white/70 hover:text-red-light transition-colors text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('form-success');
+            
+            // Hide form, show success message
+            form.style.display = 'none';
+            success.classList.remove('hidden');
+            
+            // In a real implementation, you would send the data to a server here
+            console.log('Form submitted:', {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                requestDemo: document.getElementById('requestDemo').checked
+            });
+        }
+
+        // Simple counter animation on scroll
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for counters
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const accuracyEl = document.getElementById('accuracy-counter');
+                    const sensorsEl = document.getElementById('sensors-counter');
+                    const marketEl = document.getElementById('market-counter');
+                    
+                    if (accuracyEl && !accuracyEl.dataset.animated) {
+                        accuracyEl.dataset.animated = 'true';
+                        animateCounter(accuracyEl, 99);
+                    }
+                    if (sensorsEl && !sensorsEl.dataset.animated) {
+                        sensorsEl.dataset.animated = 'true';
+                        animateCounter(sensorsEl, 10);
+                    }
+                    if (marketEl && !marketEl.dataset.animated) {
+                        marketEl.dataset.animated = 'true';
+                        marketEl.textContent = '1'; // Market counter stays at 1
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe metrics section
+        const metricsSection = document.getElementById('metrics');
+        if (metricsSection) {
+            observer.observe(metricsSection);
+        }
+    </script>
+</body>
+</html>
+
